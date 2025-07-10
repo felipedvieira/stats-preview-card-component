@@ -33,21 +33,6 @@
         display: flex;
       }
 
-      .box {
-        width: 300px;
-        height: auto;
-        background-color: hsl(244, 38%, 16%);
-        align-self: center;
-        justify-items: center;
-        text-align: center;
-        border-radius: 15px;
-      }
-      .imgProp {
-        height: auto;
-        max-width: 100%;
-        border-top-right-radius: 15px;
-        border-top-left-radius: 15px;
-      }
       .purple {
         color: hsl(277, 64%, 61%);
       }
@@ -84,68 +69,154 @@
         font-size: 12px;
         letter-spacing: 0.5px;
       }
-      .padding-text {
-        padding-left: 12px;
-        padding-right: 12px;
-      }
-      .padding-p {
-        padding-bottom: 16px;
-      }
-      .padding-bot28px {
-        padding-bottom: 28px;
-      }
-      .padding-bot40px {
-        padding-bottom: 40px;
-      }
-      .padding-bot4px {
-        padding-bottom: 4px;
+
+      /*Mobile screen classes*/
+      @media (max-width: 649px) {
+        .padding-text {
+          padding-left: 12px;
+          padding-right: 12px;
+        }
+        .padding-p {
+          padding-bottom: 16px;
+        }
+        .paddingText18px {
+          padding-left: 18px;
+          padding-right: 18px;
+        }
+        .padding-bot28px {
+          padding-bottom: 28px;
+        }
+        .padding-bot40px {
+          padding-bottom: 40px;
+        }
+        .padding-bot4px {
+          padding-bottom: 4px;
+        }
+
+        .noMobileDisplay {
+          display: none;
+        }
+
+        .box {
+          width: 300px;
+          height: auto;
+          background-color: hsl(244, 38%, 16%);
+          align-self: center;
+          justify-items: center;
+          text-align: center;
+          border-radius: 15px;
+        }
+        .imgProp {
+          height: auto;
+          max-width: 100%;
+          border-top-right-radius: 15px;
+          border-top-left-radius: 15px;
+          filter: sepia(46%) saturate(6803%) hue-rotate(243deg) brightness(70%)
+            contrast(88%) opacity(0.6);
+        }
       }
 
+      /*Desktop screen classes*/
       @media (min-width: 650px) {
+        .box {
+          width: 540px;
+          height: 446px;
+          background-color: hsl(244, 38%, 16%);
+          align-self: center;
+          justify-items: center;
+          text-align: start;
+          border-top-left-radius: 15px;
+          border-bottom-left-radius: 15px;
+        }
+        .noDesktopDisplay {
+          display: none;
+        }
+        .flex-row {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+        }
+        .flex-row-details {
+          display: flex;
+          flex-direction: row;
+        }
+        .imgProp {
+          height: auto;
+          max-width: 100%;
+          border-top-right-radius: 15px;
+          border-bottom-right-radius: 15px;
+          filter: sepia(46%) saturate(6803%) hue-rotate(243deg) brightness(70%)
+            contrast(88%) opacity(0.6);
+        }
+        .headingDesktopSize {
+          font-size: 34px;
+        }
+        .paddingTextDesktop {
+          padding-left: 75px;
+          padding-right: 100px;
+        }
+        .paddingDsHeading {
+          padding-top: 80px;
+          padding-bottom: 30px;
+        }
+        .paddingbot90pxDesktop {
+          padding-bottom: 90px;
+        }
+        .paddingDetailsDesktop {
+          padding-left: 70px;
+        }
+        .paddingAllDetais {
+          padding-right: 40px;
+        }
       }
     </style>
   </head>
   <body class="bg-color">
     <section class="flex" style="justify-content: center">
-      <div class="box">
-        <div class="padding-p">
-          <picture>
-            <source
-              media="(min-width: 650px)"
-              srcset="images\image-header-desktop.jpg" />
-            <source
-              media="(min-width: 300px)"
-              srcset="images\image-header-mobile.jpg" />
-            <img
-              class="imgProp"
-              src="images\image-header-desktop.jpg"
-              alt="header" />
-          </picture>
+      <div class="flex-row">
+        <div class="box">
+          <div class="padding-p">
+            <picture>
+              <source
+                media="(max-width: 649px)"
+                srcset="images\image-header-mobile.jpg" />
+              <img
+                class="imgProp noDesktopDisplay"
+                src="images\image-header-desktop.jpg"
+                alt="header" />
+            </picture>
+          </div>
+          <div class="padding-text paddingTextDesktop">
+            <h1
+              class="fontHeading padding-p paddingDsHeading headingDesktopSize">
+              Get <span class="purple">insights</span> that help your business
+              grow.
+            </h1>
+            <p
+              class="fontText padding-bot40px paddingText18px paddingbot90pxDesktop">
+              Discover the benefits of data analytics and make better decisions
+              regarding revenue, customer experience, and overall efficiency.
+            </p>
+          </div>
+          <div class="flex-row-details paddingAllDetais">
+            <div class="padding-bot28px">
+              <p class="fontStats padding-bot4px">10k+</p>
+              <p class="fontStatsComplement">companies</p>
+            </div>
+            <div class="padding-bot28px paddingDetailsDesktop">
+              <p class="fontStats padding-bot4px">314</p>
+              <p class="fontStatsComplement">templates</p>
+            </div>
+            <div class="padding-bot28px paddingDetailsDesktop">
+              <p class="fontStats padding-bot4px">12M+</p>
+              <p class="fontStatsComplement">queries</p>
+            </div>
+          </div>
         </div>
-        <div class="padding-text">
-          <h1 class="fontHeading padding-p">
-            Get <span class="purple">insights</span> that help your business
-            grow.
-          </h1>
-          <p
-            class="fontText padding-bot40px"
-            style="padding-left: 18px; padding-right: 18px">
-            Discover the benefits of data analytics and make better decisions
-            regarding revenue, customer experience, and overall efficiency.
-          </p>
-        </div>
-        <div class="padding-bot28px">
-          <p class="fontStats padding-bot4px">10k+</p>
-          <p class="fontStatsComplement">companies</p>
-        </div>
-        <div class="padding-bot28px">
-          <p class="fontStats padding-bot4px">314</p>
-          <p class="fontStatsComplement">templates</p>
-        </div>
-        <div class="padding-bot28px">
-          <p class="fontStats padding-bot4px">12M+</p>
-          <p class="fontStatsComplement">queries</p>
-        </div>
+        <img
+          class="imgProp noMobileDisplay"
+          src="images\image-header-desktop.jpg"
+          alt="img" />
       </div>
     </section>
     <footer>
